@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.promo'
+version = '1.0'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // PostgreSQL JDBC
+    implementation 'org.postgresql:postgresql:42.7.2'
+    // HikariCP (пул соединений)
+    implementation 'com.zaxxer:HikariCP:5.1.0'
+    // JWT
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.5'
+    // Хэширование паролей BCrypt
+    implementation 'org.mindrot:jbcrypt:0.4'
+    // Логирование Log4j2
+    implementation 'org.apache.logging.log4j:log4j-core:2.23.1'
+    implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.23.1'
+    // Email
+    implementation 'org.eclipse.angus:angus-mail:2.0.5'
+    // SMPP для SMS
+    implementation 'org.jsmpp:jsmpp:3.0.1'
+    // Jackson для работы с JSON
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.0'
+    // Встроенный http-сервер уже есть в JDK, доп. зависимости не нужны
+}
+
+application {
+    mainClass = 'com.promo.otp.Main'
+}
